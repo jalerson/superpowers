@@ -140,17 +140,20 @@ After the implementation plan is complete and saved to a file:
 
 ## Execution Handoff
 
-After saving the plan:
+After the user is satisfied with the plan and the challenges:
 
 **"Plan complete and saved to `docs/superpowers/plans/<filename>.md`. Ready to execute?"**
 
-**Execution path depends on harness capabilities:**
+**Ask the user which implementation approach to follow:**
 
-**If harness has subagents (Claude Code, etc.):**
-- **REQUIRED:** Use superpowers:subagent-driven-development
-- Do NOT offer a choice - subagent-driven is the standard approach
+**Option A: Subagent-Driven Development**
+- Use `superpowers:subagent-driven-development`
 - Fresh subagent per task + two-stage review
 
-**If harness does NOT have subagents:**
-- Execute plan in current session using superpowers:executing-plans
+**Option B: Single Agent**
+- Use `superpowers:executing-plans`
 - Batch execution with checkpoints for review
+
+**Option C: Single Agent with Human Review**
+- Use `superpowers:executing-plans-with-human-review`
+- Batch execution with mandatory human review after each task
