@@ -135,16 +135,13 @@ After saving the plan:
 
 **"Plan complete and saved to `docs/superpowers/plans/<filename>.md`. Ready to execute?"**
 
-**Ask your human partner which implementation approach must be used:**
+**Execution path depends on harness capabilities:**
 
-**Option 1: Subagent-Driven Development**
-- Use `superpowers:subagent-driven-development`
+**If harness has subagents (Claude Code, etc.):**
+- **REQUIRED:** Use superpowers:subagent-driven-development
+- Do NOT offer a choice - subagent-driven is the standard approach
 - Fresh subagent per task + two-stage review
 
-**Option 2: Executing Plans**
-- Execute plan in current session using `superpowers:executing-plans`
+**If harness does NOT have subagents:**
+- Execute plan in current session using superpowers:executing-plans
 - Batch execution with checkpoints for review
-
-**Option 3: Executing Plans with Human Review**
-- Execute plan in current session using `superpowers:executing-plans-with-human-review`
-- Batch execution with mandatory human review after each task
