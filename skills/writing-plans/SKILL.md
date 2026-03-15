@@ -129,6 +129,15 @@ After completing each chunk of the plan:
 - If loop exceeds 5 iterations, surface to human for guidance
 - Reviewers are advisory - explain disagreements if you believe feedback is incorrect
 
+## Challenge implementation plan
+
+After the implementation plan is complete and saved to a file:
+
+1. Dispatch a plan-challenger subagent with precisely crafted review context — never your session history. This keeps the reviewer focused on the plan, not your thought process.
+   - **REQUIRED SUB-SKILL:** Use the skill `superpowers:challenge-plan`
+   - Provide: path to the implementation plan document
+2. When the plan-challenger subagent completes, ask the user to review the challenges document and let you know if they want to make any changes to the plan before proceeding to execution.
+
 ## Execution Handoff
 
 After saving the plan:
