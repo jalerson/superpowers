@@ -14,6 +14,65 @@ Next up, once you say "go", it launches a *subagent-driven-development* process,
 
 There's a bunch more to it, but that's the core of the system. And because the skills trigger automatically, you don't need to do anything special. Your coding agent just has Superpowers.
 
+## Workflows
+
+The diagram below shows the workflows an engineer can take using the skills and agents provided by this plugin. Solid lines indicate a skill/agent that **always** calls another; dotted lines indicate **conditional** calls.
+
+```mermaid
+flowchart TD
+    brainstorming["brainstorming"]
+    writing-plans["writing-plans"]
+    challenge-plan["challenge-plan (subagent)"]
+    using-git-worktrees["using-git-worktrees"]
+    subagent-driven-development["subagent-driven-development"]
+    executing-plans["executing-plans"]
+    executing-plans-with-human-review["executing-plans-with-human-review"]
+    test-driven-development["test-driven-development"]
+    systematic-debugging["systematic-debugging"]
+    dispatching-parallel-agents["dispatching-parallel-agents"]
+    verification-before-completion["verification-before-completion"]
+    requesting-code-review["requesting-code-review"]
+    code-reviewer["code-reviewer (subagent)"]
+    receiving-code-review["receiving-code-review"]
+    finishing-a-development-branch["finishing-a-development-branch"]
+    writing-skills["writing-skills"]
+
+    brainstorming --> writing-plans
+    brainstorming -.-> using-git-worktrees
+
+    writing-plans --> challenge-plan
+    writing-plans -.-> subagent-driven-development
+    writing-plans -.-> executing-plans
+    writing-plans -.-> executing-plans-with-human-review
+
+    subagent-driven-development --> using-git-worktrees
+    subagent-driven-development --> test-driven-development
+    subagent-driven-development --> requesting-code-review
+    subagent-driven-development --> finishing-a-development-branch
+
+    executing-plans --> using-git-worktrees
+    executing-plans --> test-driven-development
+    executing-plans --> verification-before-completion
+    executing-plans --> finishing-a-development-branch
+
+    executing-plans-with-human-review --> using-git-worktrees
+    executing-plans-with-human-review --> test-driven-development
+    executing-plans-with-human-review --> verification-before-completion
+    executing-plans-with-human-review --> finishing-a-development-branch
+
+    systematic-debugging --> test-driven-development
+
+    requesting-code-review --> code-reviewer
+
+    receiving-code-review -.-> verification-before-completion
+
+    finishing-a-development-branch --> verification-before-completion
+
+    writing-skills --> test-driven-development
+
+    dispatching-parallel-agents -.-> test-driven-development
+    dispatching-parallel-agents -.-> systematic-debugging
+```
 
 ## Sponsorship
 
