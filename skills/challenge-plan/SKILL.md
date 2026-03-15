@@ -165,6 +165,12 @@ For every external dependency the plan introduces or relies on:
 
 Present findings as a structured review. Lead with a brief summary of what the plan gets right (1-2 sentences), then list criticisms organized by tier.
 
+**Save the review to a file** alongside the plan. Derive the challenges filename from the plan filename by appending `-challenges`:
+- Plan: `docs/superpowers/plans/2026-03-11-zero-dep-brainstorm-server.md`
+- Challenges: `docs/superpowers/plans/2026-03-11-zero-dep-brainstorm-server-challenges.md`
+
+After writing the file, inform the user: **"Plan review complete and saved to `<challenges-file-path>`. Please review the challenges and let me know if you'd like to address any before proceeding to implementation."**
+
 ### Output Format
 
 ```
