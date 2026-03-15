@@ -74,6 +74,17 @@ flowchart TD
     dispatching-parallel-agents -.-> systematic-debugging
 ```
 
+## Differences from the original Superpowers
+
+This version of Superpowers is a fork of [the original Superpowers plugin](https://github.com/obra/superpowers/). The main differences are:
+
+* New skill `superpowers:executing-plans-with-human-review` that adds a mandatory human review gate before marking any task complete. If the reviewer requests changes, assess plan impact and update the plan document before implementing.
+* New skill `superpowers:challenge-plan`, which is automatically executed by a subagent after the implementation plan is written. This skill challenges the implementation plan before executing it. This skill is always triggered by the skill `writing-plans`.
+* The skill `writing-plans` doesn't automatically triggers `superpowers:subagent-driven-development` anymore. Instead, it asks the user which implementation approach to follow:
+    * Option 1: Subagent-Driven Development (skill `superpowers:subagent-driven-development`)
+    * Option 2: Executing Plans (skill `superpowers:executing-plans`)
+    * Option 3: Executing Plans with Human Review (skill `superpowers:executing-plans-with-human-review`)
+
 ## Sponsorship
 
 If Superpowers has helped you do stuff that makes money and you are so inclined, I'd greatly appreciate it if you'd consider [sponsoring my opensource work](https://github.com/sponsors/obra).
